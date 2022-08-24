@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Categoria, Comentarios,Noticia
+from .models import Categoria, Comentarios, Noticia
 
 # Register your models here.
 #admin.site.register(Categoria)
