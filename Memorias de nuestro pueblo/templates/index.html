@@ -1,57 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block contenidos %}
 
-<!--aqui van las Noticias-->
 
-<div class="container text-center">
-    <div class="row align-items-start">
-      <div class="col">
-        <a href="{% url 'noticias' %}">
-        <h5 class="card-title">Noticia</h5>
-        </a>
 
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="{% static 'images/evento al aire libre.jpg' %}" class="img-fluid rounded-start" alt="evento al aire libre">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Título de noticia</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
+    {% for noticia in noticiasdestacadas %}
+        <div class="container text-center">
+            <div class="row align-items-start">
+              
+              <div class="col">
+                    <a href="{% url 'noticias' %}">
+                    <h5 class="card-title">Noticia</h5>
+                    </a>
+                  <div class="card mb-3" style="max-width: 540px;">
+                      <div class="row g-0">
+                        <div class="col-md-4">
+                          <img src="{% static 'images/evento al aire libre.jpg' %}" class="img-fluid rounded-start" alt="evento al aire libre">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ noticia.titulo}}</h5>
+                            <p class="card-text">{{ noticia.contenido | truncatechars:100 }}</p>
+                            <p><a class="btn btn-secondary" href="{% url 'apps.noticias_app:noticiasdetalle' id=noticia.id %}">Ver más &raquo;</a></p>
+                            <a href="{% url 'noticias' %}" class="btn btn-primary w-100"> Ver todas las noticias </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
               </div>
             </div>
           </div>
-      </div>
-      
-
-<!--aqui van las Eventos-->
-
-<div class="col">
-    <a href="{% url 'eventos' %}">
-    <h5 class="card-title">Eventos</h5>
-    </a>
+    {% endfor %}
 
 
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="{% static 'images/imagen en grupo.jpg' %}" class="img-fluid rounded-start" alt="evento ">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Título de evento</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
-
-
-{% endblock %}
+{% endblock %} 
