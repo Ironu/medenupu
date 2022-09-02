@@ -22,14 +22,5 @@ from django.conf import settings
 from apps.noticias_app import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('eventos/', views.eventos, name='eventos'),
-    path('misionVision/', views.misionVision, name='misionVision'),
-    path('noticias/', views.noticias, name='noticias'),    
-    path('quienesSomos/', views.quienesSomos, name='quienesSomos'),
-    path('recursos/', views.recursos, name='recursos'),
-    path('contacto/', views.contacto, name='contacto'),
-    path('login/', views.login, name='login'),
-    url('noticias/', include('apps.noticias_app.urls'))
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, show_indexes=True)
+    path('noticias/<int:id>/', views.noticiasdetalle, name='noticiasdetalle')    
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, show_indexes=True) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT, show_indexes=True) 

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenidos %}
+
+<h1> {{ noticia.titulo }} </h1>
+
+<div class ="date"> {{ noticia.creado }} </div>
+
+<p> 
+    {{ noticia.contenido }}
+</p>
+
+<section class="contaniner">
+    {% for comentario in %}
+
+        <p>Comentario: {{ comentario.cuerpo_comentario |safe| linebreaks }}</p>
+        <span> Creado: {{ comentario.creado }}</span>
+        <span> Autor: {{ comentario.autor }}</span>
+
+    {% endfor %}
+
+
+</section>
+
+{% endblock %}

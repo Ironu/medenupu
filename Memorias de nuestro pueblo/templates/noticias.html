@@ -16,98 +16,24 @@
 
       <h1>NOTICIAS</h1>
 
+<div class="row mb-2">      <!-- Primera noticias -->
 
-    <div class="row mb-2">      <!-- Primera linea de noticias -->
+  {% for noticia in noticias %}
       <div class="col-md-4">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <img src="{% static 'images/Ferragosto.jpeg' %}" class="img-thumbnail" alt="Foto Evento">
-            <h3 class="mb-0">Ferragosto, plazoleta la chimenea Codutti.</h3>
-            <div class="mb-1 text-muted">21 de agosto de 2022 </div>
-            <p class="card-text mb-auto">📆El domingo 21 de agosto de 2022, 𝗹𝗮 𝗙𝘂𝗻𝗱𝗮𝗰𝗶𝗼́𝗻 𝗠𝗲𝗺𝗼𝗿𝗶𝗮𝘀 𝗱𝗲 𝗡𝘂𝗲𝘀𝘁𝗿𝗼 𝗣𝘂𝗲𝗯𝗹𝗼 participó del evento denominado Ferragosto, realizado en la Plazoleta de la Chimenea Codutti de Resistencia.</p>
-            <a href="https://www.facebook.com/fundacionmemorias/posts/pfbid022W3NVCZG1KA88zvqqugXJdAx7eMgZZSpPJEFJ9CHdd2fE2vxZXL92DfKUvarfRs4l" class="stretched-link">Ir a la noticia</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-
-
-          </div>
-        </div>
+            <img src="media/img/noticias/{{noticia.img}}" class="img-thumbnail" alt="Foto Evento">
+            <h3 class="mb-0">{{ noticia.titulo }}</h3>
+              <div class="mb-1 text-muted">{{noticia.fecha}}</div>
+                <p class="card-text mb-auto">{{noticia.contenido}}</p>
+                <p><a class="btn btn-secondary" href="{% url 'noticiasdetalle' id=noticia.id %}">Leer más &raquo;</a></p>
+            
+                <div class="col-auto d-none d-lg-block"></div>
+          </div>    
       </div>
-      <div class="col-md-4">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <img src="{% static 'images/Fontana, historia y memoria.jpeg' %}" class="img-thumbnail" alt="Foto Evento">
-            <h3 class="mb-0">𝗙𝗼𝗻𝘁𝗮𝗻𝗮: 𝗵𝗶𝘀𝘁𝗼𝗿𝗶𝗮 𝘆 𝗺𝗲𝗺𝗼𝗿𝗶𝗮</h3>
-            <div class="mb-1 text-muted">19 de Agosto del 2022</div>
-            <p class="mb-auto">📆En la tarde del jueves 18 de agosto de 2022, se realizó la charla 𝗙𝗼𝗻𝘁𝗮𝗻𝗮: 𝗵𝗶𝘀𝘁𝗼𝗿𝗶𝗮 𝘆 𝗺𝗲𝗺𝗼𝗿𝗶𝗮, en la 𝘀𝗲𝗱𝗲 𝗱𝗲𝗹 𝗦.𝗨.𝗢.𝗘.𝗠. 𝗙𝗼𝗻𝘁𝗮𝗻𝗮.</p>
-            <a href="https://www.facebook.com/fundacionmemorias/posts/pfbid021adxJ6VU2z93jyNtycosRENkTCApV1HX2J6NK8qAyP3ynKEzxUnzsTRN93FUgELYl" class="stretched-link">Ir a la noticia</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
+  </div>
+  {% endfor %}
 
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <img src="{% static 'images/Especial centenario.jpeg' %}" class="img-thumbnail" alt="Foto Evento">
-            <h3 class="mb-0">Especial por el centenario de la escuela 103</h3>
-            <div class="mb-1 text-muted">17 de Agosto del 2022 </div>
-            <p class="card-text mb-auto">📆Hoy 17 de agosto salimos a al aire con Memorias de Fontana, abordamos el centenario de la Escuela 103. Agradecemos a la Vicedirectora Graciela Montiel y a Ana Ponce por su aporte al programa contando el pasado y presente de la escuela como pobladora, ex alumna y Docente.</p>
-            <a href="https://www.facebook.com/fundacionmemorias/posts/pfbid02yrVSo2VyHgnd4uFGVfXmp5ynB8ykZ2fpA4ZCCWZK6KH8LUoZBfHud1bzSew1uhvJl" class="stretched-link">Ir a la noticia</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row mb-2">      <!-- Segunda linea de noticias-->
-      <div class="col-md-4">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <h3 class="mb-0">Titulo</h3>
-            <div class="mb-1 text-muted">Fecha</div>
-            <p class="mb-auto">Noticia</p>
-            <a href="#" class="stretched-link">Ir a la noticia</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">foto evento</text></svg>
-  
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <h3 class="mb-0">Titulo</h3>
-            <div class="mb-1 text-muted">Fecha</div>
-            <p class="mb-auto">Noticia</p>
-            <a href="#" class="stretched-link">Ir a la noticia</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">foto evento</text></svg>
-  
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <h3 class="mb-0">Titulo</h3>
-            <div class="mb-1 text-muted">Fecha</div>
-            <p class="mb-auto">Noticia</p>
-            <a href="#" class="stretched-link">Ir a la noticia</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">foto evento</text></svg>
-  
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+</div>
 
 {% endblock %}
