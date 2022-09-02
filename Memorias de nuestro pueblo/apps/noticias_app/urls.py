@@ -13,14 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from xml.dom.minidom import Document
+#from xml.dom.minidom import Document
 from django.contrib import admin
 from django.urls import include,path
-from django.urls import re_path as url
+from django.urls import re_path
 from django.conf.urls.static import static
 from django.conf import settings
 from apps.noticias_app import views
 
+app_name= 'apps.noticias_app'
+
 urlpatterns = [
-    path('noticias/<int:id>/', views.noticiasdetalle, name='noticiasdetalle')    
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, show_indexes=True) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT, show_indexes=True) 
+    path('noticias/<int:id>/', views.noticiasdetalle, name='noticiasdetalle'),
+    path("noticias/new", views.CrearNoticiaView.as_view(), name='CrearNoticiaView'),
+    path('comentario/<int:id>/approve', views.comment_approve, name='comment_approve'),
+    path('comentario/<int:id>/remove', views.comment_remove, name='comment_remove')    
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, show_indexes=True)
