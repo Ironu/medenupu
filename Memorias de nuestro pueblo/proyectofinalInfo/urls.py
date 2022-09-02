@@ -22,14 +22,15 @@ from django.conf import settings
 from apps.noticias_app import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', views.index, name='index'),
-    path('eventos/', views.eventos, name='eventos'),
-    path('misionVision/', views.misionVision, name='misionVision'),
-    path('noticias/', views.noticias, name='noticias'),    
-    path('quienesSomos/', views.quienesSomos, name='quienesSomos'),
-    path('recursos/', views.recursos, name='recursos'),
-    path('contacto/', views.contacto, name='contacto'),
-    path('login/', views.login, name='login'),
-    url('noticias/', include('apps.noticias_app.urls'))
+    path('eventos', views.eventos, name='eventos'),
+    path('misionVision', views.misionVision, name='misionVision'),
+    path('noticias', views.noticias, name='noticias'),    
+    path('quienesSomos', views.quienesSomos, name='quienesSomos'),
+    path('programaRadio', views.programaRadio, name='programaRadio'),
+    path('contacto', views.contacto, name='contacto'),
+    path('registration', include('apps.blog_auth.urls', namespace='apps.blog_auth')),
+    url('noticias', include('apps.noticias_app.urls', namespace='apps.noticias_app')),
+    #url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, show_indexes=True)

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.noticias_app',
+    'apps.blog_auth',
 ]
 
 MIDDLEWARE = [
@@ -58,13 +59,13 @@ ROOT_URLCONF = 'proyectofinalInfo.urls'
 TEMPLATE_DIR = os.path.join(os.path.dirname(BASE_DIR),'templates')
 TEMPLATE_NOTICIAS = os.path.join(os.path.dirname(BASE_DIR),'templates/noticias')
 TEMPLATE_EVENTOS = os.path.join(os.path.dirname(BASE_DIR),'templates/eventos')
-
+TEMPLATE_REGISTRATION = os.path.join(os.path.dirname(BASE_DIR),'templates/registration')
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         #'DIRS': [os.path.join(os.path.dirname(BASE_DIR),'templates')],
-        'DIRS': [TEMPLATE_DIR,TEMPLATE_NOTICIAS,TEMPLATE_EVENTOS],
+        'DIRS': [TEMPLATE_DIR,TEMPLATE_NOTICIAS,TEMPLATE_REGISTRATION,TEMPLATE_EVENTOS],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,3 +136,8 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL ='/'
+LOGOUT_REDIRECT_URL = '/'
